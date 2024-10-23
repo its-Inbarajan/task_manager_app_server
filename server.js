@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const usersRoute = require("./routes/userRoutes/usersRoutes");
+const taskRouter = require("./routes/taskRoutes/taskRoutes");
 require("dotenv").config();
 const app = express();
 // config
@@ -21,7 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/users", usersRoute);
-app.use("/api/tasks", usersRoute);
+app.use("/api/tasks", taskRouter);
 
 // connections
 mongoose
